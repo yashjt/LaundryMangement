@@ -1,0 +1,52 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Customer</h3>
+              <nav aria-label="breadcrumb">
+                {% comment %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol> {% endcomment %}
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    {% comment %} <h4 class="card-title">Booking</h4> {% endcomment %}
+                    <div class="table-responsive">
+                      <a href="/custadd/"><button type="button" class="btn btn-sm btn-danger">Add Customer</button></a> 
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th><b>Customer id</b></th>
+                            <th><b>Name</b></th>
+                            <th><b>Phone Number</b></th>
+                            <th><b>Email</b></th>
+                            <th><b>Gender</b></th>
+                            <th><b>Password</b></th>
+                          </tr>
+                        </thead>
+                        {%for customer in customers%}
+                        <tr>
+                          <td>{{customer.customer_id}}</td>	
+                          <td>{{customer.name}}</td>                         
+                          <td>{{customer.phone_number}}</td>
+                          <td>{{customer.email}}</td>
+                          <td>{{customer.gender}}</td>
+                          <td>{{customer.password}}</td>
+                          <td><a href="/deletecust/{{customer.customer_id}}"><button type="button" class="btn btn-primary mr-2">Delete</button></a><a href="/custupdate/{{customer.customer_id}}"><button type="button" class="btn btn-sm btn-danger">Edit</button></a>
+                          </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        {% endblock%}

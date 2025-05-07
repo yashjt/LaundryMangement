@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">itemcharges Add</h3>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">itemcharges Details </h4>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th><b>Item Charges ID</b></th>
+                    <th><b>Item ID</b></th>
+                    <th><b>Service Type ID</b></th>
+                    <th><b>Charges</b></th>
+                    <th><b>Unit ID</b></th>
+                    <th><b>Service For ID</b></th>
+                  </tr>
+                </thead>
+                {% for itemCharge in itemcharges %}
+                <tr>
+                  <td>{{ itemCharge.item_charges_id }}</td>
+                  <td>{{ itemCharge.item_id }}</td>
+                  <td>{{ itemCharge.service_type_id }}</td>
+                  <td>{{ itemCharge.charges }}</td>
+                  <td>{{ itemCharge.unit_id }}</td>
+                  <td>{{ itemCharge.service_for_id }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

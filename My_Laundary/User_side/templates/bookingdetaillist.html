@@ -1,0 +1,42 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Booking Detail</h3>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Booking Detail</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>Booking detail id</th>
+                            <th>booking id</th>
+                            <th>Quantity</th>
+                            <th>item charges id</th>
+                            <th>Rate</th>
+                          </tr>
+                        </thead>
+                        {%for bookdetail in bdetails%}
+                        <tr>	
+                          <td>{{bookdetail.booking_details_id}}</td>
+                          <td>{{bookdetail.booking_id}}</td>
+                          <td>{{bookdetail.quantity}}</td>
+                          <td>{{bookdetail.item_charges_id}}</td>
+                          <td>{{bookdetail.rate}}</td>
+                          <!-- <td><a href="/deletebookdetail/{{bookdetail.booking_details_id}}" class="btn btn-primary btn-sm"> Delete</a> || <a href="/bookdetailupdate/{{bookdetail.booking_details_id}}" class="btn btn-danger btn-sm">Edit</a></td> -->
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endblock%}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{%load static%}
+
+<head>
+    <meta charset="utf-8">
+    <title>my laundry</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'visitor/img/favicon.icon'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'visitor/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'visitor/css/style.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+   
+
+    <div class="container-fluid bg-light py-8 ">
+      <div class="container text-center">
+          <h1>My Laundry</h1>
+      </div>
+
+  
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 px-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/vindex/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profile/">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/vshop/">Booking</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/mybookings/">Booking Detail</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" data-toggle="dropdown">
+                    Pages
+                  </a>
+                  <div class="dropdown-menu rounded-0" aria-labelledby="pagesDropdown">
+                    <a class="dropdown-item" href="/vcart/">Cart</a>
+                    <a class="dropdown-item" href="/vcheckout/">Checkout</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/Aboutus/">AboutUs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/vcontact/">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    
+    
+      
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <!-- <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Shopping Cart</h1>
+            <h5><div class="d-inline-flex">
+                <p class="m-0"><a href="/vindex/" class="text-info">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Shopping Cart</p>
+            </div></h5>
+        </div>
+    </div> -->
+    <!-- Page Header End -->
+
+
+    <!-- Cart Start -->
+
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="table-responsive mb-5">
+              <table class="table table-bordered text-center">
+                <thead class="bg-secondary text-dark">
+                  <tr>
+                    <th>Product Images</th>
+                    <th>Products</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for cart in carts %}
+                  <tr>
+                    <td><img src="{{cart.item_charges.item.item_image}}" alt="" style="width: 50px;"></td>
+                    <td>{{cart.item_charges.item.item_name}} - {{cart.item_charges.service_for.service_for_name}}-{{cart.item_charges.service_type.service_type}}</td>
+                    <td>₹{{cart.rate}}</td>
+                    <td>
+                      <div class="input-group quantity mx-auto" style="width: 100px;">
+                        <input type="text" class="form-control form-control-sm bg-secondary text-center" value="{{cart.quantity}}">
+                      </div>
+                    </td>
+                    <td>{% widthratio cart.rate 1 cart.quantity %}</td>
+                    <td><a href="/cartdelete/{{cart.cart_list_id}}/" class="btn btn-sm btn-info"><i class="fa fa-times"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card border-secondary mb-5">
+              <div class="card-header bg-secondary text-white">
+                <h4 class="font-weight-bold m-0">Cart Summary</h4>
+              </div>
+              <div class="card-body">
+                <form action="/booking_order/" method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea class="form-control" id="address" name="address" placeholder="Enter your address" required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="timeSlot">Time Slot</label>
+                    <select class="form-control" id="timeSlot" name="ts">
+                      <option value="10:00 To 12:00">10:00 AM to 12:00 PM</option>
+                      <option value="15:00 To 17:00">3:00 PM to 5:00 PM</option>
+                      <option value="19:00 To 20:30">7:00 PM to 8:30 PM</option>
+                    </select>
+                  </div>
+                  <div class="d-flex justify-content-between mt-4">
+                    <h5 class="font-weight-bold">Total</h5>
+                    <h5 class="font-weight-bold">₹{{ total }}</h5>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-block btn-info mt-4">Booking</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Cart End -->
+
+
+    <!-- Footer Start -->
+    <footer class="footer bg-secondary text-dark">
+      <div class="container-fluid pt-5">
+          <div class="row px-xl-5">
+             
+              <div class="col-lg-8 col-md-12">
+                  <div class="row">
+                     
+                      <div class="col-md-6 mb-4">
+                          <h5 class="font-weight-bold">Address</h5>
+                          <p>Shop No.14 Sindhi market Dinanath Store.</p>
+                          <p>Contact No 9895998658</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row border-top border-light mx-xl-5 py-4">
+          <div class="col-md-6 px-xl-0">
+              <p class="mb-md-0 text-center text-md-left text-dark">
+                  &copy; <a class="text-dark font-weight-semi-bold" href="#">My Laundry</a>. All Rights Reserved. Designed by Patel Yash Jatinbhai, Dhrumit Berani, and Premkumar Umeshkumar Bhai.
+              </p>
+          </div>
+          <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <h1><h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-info font-weight-bold border px-6 mr-4 bg-secondary"><img src="{% static 'assets/images/faces/MLA.png' %}" width="200" height="200"></span></h1></h1>
+          </div>
+      </div>
+  </footer>
+
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-info back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+   <script src="{% static 'visitor/lib/easing/easing.min.js'%}"></script>
+   <script src="{% static 'visitor/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+
+   <!-- Contact Javascript File -->
+   <script src="{% static 'visitor/mail/jqBootstrapValidation.min.js'%}"></script>
+   <script src="{% static 'visitor/mail/contact.js'%}"></script>
+
+   <!-- Template Javascript -->
+   <script src="{% static 'visitor/js/main.js'%}"></script>
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://www.paypal.com/sdk/js?client-id=Afms7ml19PbLIG2n2wf3J4qJz8B8V3fZY4fZa63cORVoOo9C3CyztzLCHuvX2_hDZYCHYumSdoicGDlk&currency=USD"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_test_Q5SJEtqhEZRtu", // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_IluGWxBm9U8zJ8", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+rzp1.on('payment.failed', function (response){
+        alert(response.error.code);
+        alert(response.error.description);
+        alert(response.error.source);
+        alert(response.error.step);
+        alert(response.error.reason);
+        alert(response.error.metadata.order_id);
+        alert(response.error.metadata.payment_id);
+});
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+</script>
+</body>
+
+</html>

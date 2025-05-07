@@ -1,0 +1,46 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Service For </h3>
+              <nav aria-label="breadcrumb">
+                {% comment %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol> {% endcomment %}
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    {% comment %} <h4 class="card-title">Booking</h4> {% endcomment %}
+                    <div class="table-responsive">
+                      <a href="/serviceforadd/"><button type="button" class="btn btn-sm btn-danger">Add Service for</button></a>
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th><b>Service for id </b></th>
+                            <th><b>service for name</b></th>
+                           
+                          </tr>
+                        </thead>
+                        {%for serviceFor in servicefor%}
+                        <tr>
+                          <td>{{serviceFor.service_for_id}}</td>	
+                          <td>{{serviceFor.service_for_name}}</td>
+                          <td><a href="/servicefordelete/{{serviceFor.service_for_id}}"><button type="button" class="btn btn-primary mr-2">Delete</button></a><a href="/serviceforupdate/{{serviceFor.service_for_id}}"><button type="button" class="btn btn-sm btn-danger">Edit</button></a>
+                          {% comment %} <a href="/bookingdetail/{{itemcharge.booking_id}}/"><button type="button" class="btn btn-primary mr-2">Details</button></a></td> {% endcomment %}
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        {% endblock%}

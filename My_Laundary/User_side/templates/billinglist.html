@@ -1,0 +1,47 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Bills</h3>
+              <nav aria-label="breadcrumb">
+                {% comment %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol> {% endcomment %}
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    {% comment %} <h4 class="card-title">Bills</h4> {% endcomment %}
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            
+                            <th>Biling id</th>
+                            <th>customer id</th>
+                            <th>Billing Date</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        {%for billing in bills%}
+                        <tr>
+                          <td>{{billing.bill_id}}</td>	
+                          <td>{{billing.customer_id}}</td>                         
+                          <td>{{billing.bill_date}}</td>
+                          <td><a href="/deletebill/{{billing.bill_id}}" onclick="return confirm('Do you want to delete?');">Delete</a> || <a href="/billupdate/{{billing.bill_id}}">Edit</a></td>
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        {% endblock%}

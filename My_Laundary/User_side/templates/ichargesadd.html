@@ -1,0 +1,72 @@
+{%extends "base.html"%}
+{% block body %}
+<div class="main-panel">
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Add Item Charges</h3>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <form class="forms-sample" action="/saveicharges/" method="post">
+                {% csrf_token %}
+                {% comment %} <div class="form-group">
+                    <label for="exampleInputName1">item Charges Id</label>
+                    <input type="text" class="form-control" id="exampleInputName1" name="item_charges_id" placeholder="item_charges_id" required />
+                </div> {% endcomment %}
+                <div class="form-group">
+                    <label>Item</label>
+                        <select class="form-control" id="item" name="item">
+                            {% for item in items  %}
+                            <option value="{{ item.item_id }}">{{ item.item_name }}</option>
+                            {% endfor %}
+                        </select>
+                   </div>
+                   <div class="form-group">
+                    <label>Service type</label>
+                        <select class="form-control" id="servicetypeid" name="servicetypeid">
+                            {% for servicetype in servicetypes  %}
+                            <option value="{{servicetype.service_id}}">{{servicetype.service_type}}</option>
+                            {% endfor %}
+                        </select>
+                   </div>
+
+                <div class="form-group">
+                    <label>Charges</label>
+                    <input type="text" class="form-control" id="exampleInputName1" name="charges" placeholder="charges" required />
+                </div>
+                <div class="form-group">
+                    <label>Unit Id</label>
+                        <select class="form-control" id="unitid" name="unitid">
+                            {% for unit in units  %}
+                            <option value="{{ unit.unit_id }}">{{ unit.unit_name }}</option>
+                            {% endfor %}
+                        </select>
+                   </div>
+                   <div class="form-group">
+                    <label>Service For</label>
+                        <select class="form-control" id="servicefor" name="servicefor">
+                            {% for servicefor in servicefors  %}
+                            <option value="{{ servicefor.service_for_id }}">{{ servicefor.service_for_name }}</option>
+                            {% endfor %}
+                        </select>
+                   </div>
+                <button type="submit" class="btn btn-primary mr-2" value="add"> Add</button>
+                <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+    </div>
+    {% comment %}
+    code to show city name in box 
+     <select>
+        {% for city in cities  %}
+          <option value="{{ city.city_id }}">{{ city.city_name }}</option>
+        {% endfor %}
+      </select>  {% endcomment %}
+{% endblock%}
+        

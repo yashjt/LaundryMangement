@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <title>My Laundry</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'visitor/img/favicon.ico'%}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'visitor/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'visitor/css/style.css' %}" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light py-8 ">
+        <div class="container text-center">
+            <h1>My Laundry</h1>
+        </div>
+  
+    
+    <!-- Topbar End -->
+
+    <!-- Topbar Start -->
+   
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 px-0">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/vindex/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile/">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/vshop/">Booking</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/mybookings/">Booking Detail</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" data-toggle="dropdown">
+                      Pages
+                    </a>
+                    <div class="dropdown-menu rounded-0" aria-labelledby="pagesDropdown">
+                      <a class="dropdown-item" href="/vcart/">Cart</a>
+                      <a class="dropdown-item" href="/vcheckout/">Checkout</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Aboutus/">AboutUs</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/vcontact/">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+    <!-- Navbar End -->
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'visitor/img/h1_hero.png'%}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Laundry & Dry Cleaning</h4>
+                            <h1 class="display-3 text-white mb-md-4">Best For Laundry Services</h1>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" style="height: 790px;">
+                    <img class="w-100" src="{% static 'visitor/img/hero2.png'%}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase mb-md-3">Laundry & Dry Cleaning</h4>
+                            <h1 class="display-3 text-white mb-md-4">Best For Laundry Services</h1>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn btn-secondary" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn btn-secondary" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Carousel End -->
+
+
+    <!-- Contact Info Start -->
+    <div class="container-fluid contact-info mt-5 mb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 pb-1">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center bg-primary mb-4 px-4" style="height: 300px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-info shadow rounded-circle mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-3x fa-shield-alt text-white"></i>
+                        </div>
+                        <h4 class="font-weight-bold m-0 text-white">Secure Cleaning</h4>
+                        <p class="text-white">We prioritize the safety and security of your garments.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-1">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center bg-primary mb-4 px-4" style="height: 300px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-info shadow rounded-circle mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-3x fa-clock text-white"></i>
+                        </div>
+                        <h4 class="font-weight-bold m-0 text-white">Quick Turnaround</h4>
+                        <p class="text-white">We provide fast and efficient laundry services with quick turnaround times.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-1">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center bg-primary mb-4 px-4" style="height: 300px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-info shadow rounded-circle mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-3x fa-hand-holding-heart text-white"></i>
+                        </div>
+                        <h4 class="font-weight-bold m-0 text-white">Eco-Friendly</h4>
+                        <p class="text-white">We use eco-friendly products and practices for a sustainable future.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 pb-1">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center bg-primary mb-4 px-4" style="height: 300px;">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-info shadow rounded-circle mb-4" style="width: 100px; height: 100px;">
+                            <i class="fas fa-3x fa-heart text-white"></i>
+                        </div>
+                        <h4 class="font-weight-bold m-0 text-white">Customer Satisfaction</h4>
+                        <p class="text-white">We strive to ensure your satisfaction with our laundry services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Contact Info End -->
+
+
+
+    <!-- Navbar End -->
+
+
+
+
+    
+
+
+
+    <!-- Footer Start -->
+    <footer class="footer bg-secondary text-dark">
+        <div class="container-fluid pt-5">
+            <div class="row px-xl-5">
+               
+                <div class="col-lg-8 col-md-12">
+                    <div class="row">
+                       
+                        <div class="col-md-6 mb-4">
+                            <h5 class="font-weight-bold">Address</h5>
+                            <p>Shop No.14 Sindhi market Dinanath Store.</p>
+                            <p>Contact No 9895998658</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row border-top border-light mx-xl-5 py-4">
+            <div class="col-md-6 px-xl-0">
+                <p class="mb-md-0 text-center text-md-left text-dark">
+                    &copy; <a class="text-dark font-weight-semi-bold" href="#">My Laundry</a>. All Rights Reserved. Designed by Patel Yash Jatinbhai, Dhrumit Berani, and Premkumar Umeshkumar Bhai.
+                </p>
+            </div>
+            <div class="col-md-6 px-xl-0 text-center text-md-right">
+              <h1><h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-info font-weight-bold border px-6 mr-4 bg-secondary"><img src="{% static 'assets/images/faces/MLA.png' %}" width="200" height="200"></span></h1></h1>
+            </div>
+        </div>
+    </footer>
+  
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-info back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'visitor/lib/easing/easing.min.js'%}"></script>
+    <script src="{% static 'visitor/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{% static 'visitor/mail/jqBootstrapValidation.min.js'%}"></script>
+    <script src="{% static 'visitor/mail/contact.js'%}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'visitor/js/main.js'%}"></script>
+</body>
+
+</html>

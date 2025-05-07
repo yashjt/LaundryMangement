@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Update unit</h3>
+            </div>
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-description">Update Unit Name</p>
+                        <form class="forms-sample" action="/billupdate/{{bills.bill_id}}/" method="post">
+                            {% csrf_token %}
+                          <div class="form-group">
+                              <label>Unit Id</label>
+                              <select class="form-control" id="customerid" name="customerid" >
+                                  {% for unit in units  %}
+                                  <option value="{{ unit.unit_id }}">{{ unit.name }}</option>
+                                  {% endfor %}
+                              </select>
+                              {% comment %} <input type="text" class="form-control" id="exampleInputName1" name="areaname" placeholder="areaname" required /> {% endcomment %}
+                          </div>
+                          <!-- <div class="form-group">
+                              <label>Billing Date</label>
+                              <input type="date" class="form-control" id="exampleInputName1" name="bdate" placeholder="bdate"value="{{bills.bill_date}}" required />
+                          </div> -->
+                            <button type="submit" class="btn btn-primary mr-2" value="update"> Update </button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!-- partial -->
+        </div>
+{% endblock%}

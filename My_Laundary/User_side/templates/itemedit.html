@@ -1,0 +1,35 @@
+{%extends "base.html"%}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Item Update </h3>
+              <nav aria-label="breadcrumb">
+                
+              </nav>
+            </div>
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <form class="forms-sample" action="/itemupdate/{{item.item_id}}/" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="fn">item_name </label>
+                                    <input class="form-control" type="text" class="form-control"  id="item_name" value="{{item.item_name}}" name="item_name" placeholder="item_name" size="40" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fn">item_image </label>
+                                    <input class="form-control" type="file" class="form-control"  id="item_image" value="{{item.item_image}}" name="item_image" placeholder="item_image" size="40" autofocus required>
+                                </div>
+                            <button type="submit" class="btn btn-primary mr-2" value="update"> Update </button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!-- partial -->
+        </div>
+        {% endblock%}

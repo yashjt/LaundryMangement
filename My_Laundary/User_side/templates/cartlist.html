@@ -1,0 +1,55 @@
+{%extends "base.html"%}
+        {% block body %}
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Cartlist</h3>
+              
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Cart list</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>cartlist id</th>
+                            <th>customer id</th>
+                            <th>item charges id</th>
+                            <th>item id</th>
+                            <th>quantity</th>
+                            <th>rate</th>
+                          </tr>
+                        </thead>
+                        {%for cartlist in cartlists%}
+                        <tr>	
+                          <td>{{cartlist.cart_list_id}}</td>
+                          <td>{{cartlist.customer_id}}</td>
+                          <td>{{cartlist.item_charges_id}}</td>
+                          <td>{{cartlist.item_id}}</td>
+                          <td>{{cartlist.quantity}}</td>
+                          <td>{{cartlist.rate}}</td>
+                          <td><a href="/deletecartlist/{{cartlist.cart_list_id}}">Delete</a> || <a href="/cartlistupdate/{{cartlist.cart_list_id}}">Edit</a></td>
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          {% comment %} <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer> {% endcomment %}
+          <!-- partial -->
+        </div>
+        {% endblock%}

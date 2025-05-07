@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">Update Service For</h3>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <form class="forms-sample" action="/servicefor/update/{{ service_for.service_for_id }}/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Service For Name</label>
+              <input type="text" class="form-control" name="service_for_name" value="{{ service_for.service_for_name }}" required>
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Update</button>
+            <a href="/servicefor/"><button class="btn btn-light">Cancel</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">Item Charges Update</h3>
+      <nav aria-label="breadcrumb">
+      </nav>
+    </div>
+    <div class="col-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <form
+            class="forms-sample"
+            action="/itemchargesupdate/{{ itemcharges.item_charges_id }}/"
+            method="post"
+          >
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Item ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputName1"
+                name="item_id"
+                value="{{ itemcharges.item_id }}"
+                placeholder="Item ID"
+              />
+            </div>
+            <div class="form-group">
+              <label>Service Type ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputName1"
+                name="service_type_id"
+                value="{{ itemcharges.service_type_id }}"
+                placeholder="Service Type ID"
+              />
+            </div>
+            <div class="form-group">
+              <label>Charges</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputName1"
+                name="charges"
+                value="{{ itemcharges.charges }}"
+                placeholder="Charges"
+              />
+            </div>
+            <div class="form-group">
+              <label>Unit ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputName1"
+                name="unit_id"
+                value="{{ itemcharges.unit_id }}"
+                placeholder="Unit ID"
+              />
+            </div>
+            <div class="form-group">
+              <label>Service For ID</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputName1"
+                name="service_for_id"
+                value="{{ itemcharges.service_for_id }}"
+                placeholder="Service For ID"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary mr-2">Update</button>
+            <a href="{/'item_charges'/}">
+              <button class="btn btn-light">Cancel</button>
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

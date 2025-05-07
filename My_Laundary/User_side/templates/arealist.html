@@ -1,0 +1,55 @@
+{%extends "base.html" %}
+        {% block body %}         
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Area Table</h3>
+              <nav aria-label="breadcrumb">
+                <!--<ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol>-->
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Area Table</h4>
+                    <a href="/areaadd/"><button type="button" class="btn btn-danger mr-2">Area</button></a>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th><b>Pincode</b></th>
+                            <th><b>Area Name</b></th>
+                            <th><b>City</b></th>
+                            <th><b>Actions</b></th>
+                          </tr>
+                        </thead>
+                        {%for area in areas%}
+                        <tr>
+                          <td>{{area.area_pincode}}</td>
+                          <td>{{area.area_name}}</td>
+                          <td>{{area.city_id}}</td>
+                          <td><a href="/deletearea/{{area.area_pincode}}"><button type="button" class="btn btn-primary mr-2">Delete</button></a> || <a href="/areaupdate/{{area.area_pincode}}" class="btn btn-danger mr-2">Edit</a></td>
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+          <!-- partial:../../partials/_footer.html -->
+          <!--<footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>-->
+          <!-- partial -->
+        </div>
+        {% endblock%}

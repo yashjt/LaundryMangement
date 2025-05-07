@@ -1,0 +1,76 @@
+{%extends "base.html"%}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Update Booking</h3>
+            </div>
+                  <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                      <div class="card-body">
+                        <h4 class="card-title">Update Booking</h4>
+                        <form class="forms-sample" action="/bookingupdate/{{bookings.booking_id}}/" method="post">
+                            {% csrf_token %}
+                          <div class="form-group">
+                              <label>Customer Id</label>
+                              <select class="form-control" id="customerid" name="customerid" >
+                                  {% for customer in customers  %}
+                                  <option value="{{ customer.customer_id }}">{{ customer.name }}</option>
+                                  {% endfor %}
+                              </select>
+                              {% comment %} <input type="text" class="form-control" id="exampleInputName1" name="areaname" placeholder="areaname" required /> {% endcomment %}
+                          </div>
+                          <div class="form-group">
+                            <label>Booking Date</label>
+                            <input type="date" class="form-control" id="exampleInputName1" name="bdate" placeholder="bdate"value="{{bookings.booking_date}}" required />
+                        </div>
+                          <div class="form-group">
+                              <label>Itemcharges Id</label>
+                                  <select class="form-control" id="itemcid" name="itemcid">
+                                      {% for itemcharge in itcharids  %}
+                                      <option value="{{ itemcharge.item_charges_id }}">{{ itemcharge.charges }}</option>
+                                      {% endfor %}
+                                  </select>
+                              <!--<input type="text" class="form-control" id="cityid" name="cityid" placeholder="cityid" required/>-->
+                          </div>
+                          <div class="form-group">
+                              <label>Item Id</label>
+                              <select class="form-control" id="itemid" name="itemid">
+                                  {% for item in items  %}
+                                  <option value="{{ item.item_id }}">{{ item.item_name }}</option>
+                                  {% endfor %}
+                              </select>
+                              {% comment %} <input type="text" class="form-control" id="exampleInputName1" name="areaname" placeholder="areaname" required /> {% endcomment %}
+                          </div>
+                          <div class="form-group">
+                              <label>quantity</label>
+                              <input type="text" class="form-control" id="exampleInputName1" name="qyt" placeholder="qyt"value="{{cartlists.quantity}}" required />
+                          </div>
+                          <div class="form-group">
+                              <label>Rate</label>
+                              <input type="text" class="form-control" id="exampleInputName1" name="rate" placeholder="rate" value="{{cartlists.rate}}" required />
+                          </div>
+                            {% comment %} <div class="form-group">
+                                <label for="exampleInputName1">Area Name</label>
+                                <input type="text" class="form-control" id="exampleInputName1" name="areaname" value="{{areas.area_name}}" placeholder="areaname" />
+                              </div>
+                            <div class="form-group">
+                                <label>City Id</label>
+                                <select class="form-control" id="exampleInputName1" name="cityid">
+                                  {% for city in cities  %}
+                                    <option value="{{ city.city_id }}">{{ city.city_name }}</option>
+                                  {% endfor %}
+                                </select>
+                                {% comment %} <input type="text" class="form-control" id="exampleInputName1" name="cityid" value="{{areas.city_id}}" placeholder="cityid" /> {% endcomment %}
+                            {% comment %} </div>  {% endcomment %}
+                            <button type="submit" class="btn btn-primary mr-2" value="update"> Update </button>
+                            <button class="btn btn-light">Cancel</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <!-- partial -->
+        </div>
+{% endblock%}

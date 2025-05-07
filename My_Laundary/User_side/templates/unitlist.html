@@ -1,0 +1,46 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Unit List</h3>
+              <nav aria-label="breadcrumb">
+                {% comment %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol> {% endcomment %}
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    {% comment %} <h4 class="card-title">Booking</h4> {% endcomment %}
+                    <div class="table-responsive">
+                      {% comment %} <a href="/bookingadd/"><button type="button" class="btn btn-sm btn-danger">Add Booking</button></a> {% endcomment %}
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th><b>Unit id</b></th>
+                            <th><b>Unit Name</b></th>
+                            <th><b>Actions</b></th>
+                          </tr>
+                        </thead>
+                        {%for unit in units%}
+                        <tr>
+                          <td>{{unit.unit_id}}</td>	
+                          <td>{{unit.unit_name}}</td>                         
+                          <td><a href="/unitlist/{{unit.unit_id}}"><button type="button" class="btn btn-primary mr-2">Delete</button></a><a href="/bookingupdate/{{booking.booking_id}}"><button type="button" class="btn btn-sm btn-danger">Edit</button></a>
+                          <a href="/bookingdetail/{{booking.booking_id}}/"><button type="button" class="btn btn-primary mr-2">Details</button></a></td>
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        {% endblock%}

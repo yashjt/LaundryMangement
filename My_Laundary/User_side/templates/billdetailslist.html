@@ -1,0 +1,48 @@
+{%extends "base.html" %}
+        {% block body %}
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">Billing Detail</h3>
+              <nav aria-label="breadcrumb">
+                {% comment %} <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> Basic tables </li>
+                </ol> {% endcomment %}
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-lg-12 stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Billing Detail</h4>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            
+                            <th>Biling Deatial Id</th>
+                            <th>bill id</th>
+                            <th>Item Charges id</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        {%for bdetail in bdetails%}
+                        <tr>
+                          <td>{{bdetail.bill_details_id}}</td>	
+                          <td>{{bdetail.bill_id}}</td>                         
+                          <td>{{bdetail.item_charges_id}}</td>
+                          <td>{{bdetail.quantity}}</td>
+                          <td><a href="/deletebdetails/{{bdetail.bill_details_id}}" onclick="return confirm('Do you want to delete?');">Delete</a> || <a href="/bdetailupdate/{{bdetail.bill_details_id}}">Edit</a></td>
+                        </tr>
+                        {%endfor%}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        {% endblock%}
